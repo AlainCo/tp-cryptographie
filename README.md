@@ -31,6 +31,7 @@ Ce programme démonstre les principes de base du chiffrement symétrique en util
 ### Utilisation
 
 1. Assurez-vous d'avoir installé la bibliothèque `cryptography` :
+
    ```bash
    pip install cryptography
 
