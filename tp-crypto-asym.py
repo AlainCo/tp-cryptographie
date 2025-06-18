@@ -93,6 +93,9 @@ def decrypt_file_rsa(input_file, output_file, private_key):
 def sign_file(input_file, signature_file, private_key):
     with open(input_file, 'rb') as f:
         data = f.read()
+        # Avec le padding "PSS", la méthode sign effectue automatiquement 
+        # le hachage des données avec SHA-256
+        # avant de les signer avec la clé privée RSA.
         signature = private_key.sign(
             data,
             padding.PSS(
