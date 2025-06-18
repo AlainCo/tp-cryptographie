@@ -1,5 +1,3 @@
-Bien sûr, voici le contenu brut en Markdown :
-
 # TP de Cryptographie en Python
 
 Ce dépôt contient deux programmes de test de cryptographie en Python. Ces programmes démontrent les principes de base du chiffrement symétrique et asymétrique.
@@ -37,11 +35,14 @@ Ce programme démonstre les principes de base du chiffrement symétrique en util
    pip install cryptography
 
 2. Exécutez le programme :
-python tp-crypto-sym.py
+
+   ```bash
+    python tp-crypto-sym.py
 
 ## tp-crypto-asym.py
 
 ### Description
+
 Ce programme démontre les principes de base du chiffrement asymétrique en utilisant l'algorithme RSA (Rivest-Shamir-Adleman). Il permet de générer des paires de clés RSA, de chiffrer et déchiffrer des fichiers, et de signer et vérifier des fichiers.
 
 ### Fonctionnalités
@@ -52,16 +53,22 @@ Ce programme démontre les principes de base du chiffrement asymétrique en util
 - Signature d'un fichier en utilisant une clé privée RSA.
 - Vérification de la signature d'un fichier en utilisant une clé publique RSA.
 
-###Utilisation
+### Utilisation
 
 1. Assurez-vous d'avoir installé la bibliothèque cryptography :
-pip install cryptography
+
+    ```bash
+    pip install cryptography
 
 2. Exécutez le programme :
-python tp-crypto-asym.py
+
+   ```bash
+    python tp-crypto-asym.py
 
 ## Licence
+
 Ce projet est sous licence APACHE.
 
 ## Auteur
+
 Alain Co
