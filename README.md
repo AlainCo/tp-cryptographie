@@ -73,3 +73,8 @@ Ce projet est sous licence APACHE.
 ## Auteur
 
 Alain Co
+
+## Remerciements
+
+- Le Chat Mistral (codestral), pour son aide
+- Mathys pour l'inspiration
