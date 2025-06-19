@@ -49,6 +49,7 @@ Ce programme démontre les principes de base du chiffrement asymétrique en util
 ### Fonctionnalités
 
 - Génération d'une paire de clés RSA (privée et publique).
+- chargement d'une paire de clés RSA (privée et publique).
 - Chiffrement d'un fichier en utilisant une clé publique RSA et une clé symétrique AES.
 - Déchiffrement d'un fichier chiffré en utilisant une clé privée RSA et une clé symétrique AES.
 - Signature d'un fichier en utilisant une clé privée RSA.
