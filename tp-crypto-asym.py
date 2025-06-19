@@ -36,6 +36,23 @@ def generate_rsa_keys():
         ))
     return private_key, public_key
 
+def load_rsa_keys():
+    # Charger la clé privée
+    with open(PRIVATE_KEY_FILE, "rb") as f:
+        private_key = serialization.load_pem_private_key(
+            f.read(),
+            password=None,
+            backend=default_backend()
+        )
+    # Charger la clé publique
+    with open(PUBLIC_KEY_FILE, "rb") as f:
+        public_key = serialization.load_pem_public_key(
+            f.read(),
+            backend=default_backend()
+        )
+    print(f"Clés RSA chargées depuis {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
+    return private_key, public_key
+
 def encrypt_file_rsa(input_file, output_file, public_key):
     # Générer une clé symétrique AES
     symmetric_key = os.urandom(SYMMETRIC_KEY_SIZE)
@@ -127,10 +144,16 @@ def verify_signature(input_file, signature_file, public_key):
         return False
 
 def main():
-    # Générer les clés RSA
-    private_key, public_key = generate_rsa_keys()
-    print(f"Clés RSA générées et sauvegardées dans {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
-
+    # Générer les clés RSA, si besoin
+    if os.path.exists(PRIVATE_KEY_FILE) and os.path.exists(PUBLIC_KEY_FILE):
+        #charger les clés RSA
+        private_key, public_key = load_rsa_keys()
+        print(f"Clés RSA chargées depuis {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
+    else:
+        private_key, public_key = generate_rsa_keys()
+        print(f"Clés RSA générées et sauvegardées dans {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
+    
+    
     # Chiffrer le fichier avec la clé publique RSA et une clé symétrique AES
     encrypt_file_rsa(FILE_NAME, ENCRYPTED_FILE_NAME, public_key)
     print(f"Fichier {FILE_NAME} chiffré en {ENCRYPTED_FILE_NAME}")
