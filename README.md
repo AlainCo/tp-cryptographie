@@ -78,4 +78,4 @@ Alain Co
 ## Remerciements
 
 - Le Chat Mistral (codestral), pour son aide
-- Mathys pour l'inspiration
+- Zelarion pour l'inspiration
