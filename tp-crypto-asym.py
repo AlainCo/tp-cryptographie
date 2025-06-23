@@ -201,8 +201,8 @@ def test_alice_bob():
     encrypt_file_rsa(FILE_NAME, ENCRYPTED_FILE_NAME, bob_public_key)
     print(f"Fichier {FILE_NAME} chiffré en {ENCRYPTED_FILE_NAME}")
     
-    sign_file(DECRYPTED_FILE_NAME, SIGNATURE_FILE_NAME, alice_private_key)
-    print(f"Fichier {DECRYPTED_FILE_NAME} signé et signature sauvegardée dans {SIGNATURE_FILE_NAME}")
+    sign_file(FILE_NAME, SIGNATURE_FILE_NAME, alice_private_key)
+    print(f"Fichier {FILE_NAME} signé et signature sauvegardée dans {SIGNATURE_FILE_NAME}")
     
     # je suis bob
     # Déchiffrer le fichier avec la clé privée RSA de BOB et la clé symétrique AES chiffére dans le fichier
