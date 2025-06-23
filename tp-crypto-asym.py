@@ -37,7 +37,7 @@ def generate_rsa_keys(private_key_file,public_key_file):
     print(f"Clés RSA sauvegardées vers  {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
     return private_key, public_key
 
-def load_rsa_keys(private_key_file,public_key_file):
+def load_rsa_private_key(private_key_file):
     # Charger la clé privée
     with open(private_key_file, "rb") as f:
         private_key = serialization.load_pem_private_key(
@@ -45,14 +45,17 @@ def load_rsa_keys(private_key_file,public_key_file):
             password=None,
             backend=default_backend()
         )
+    print(f"Clés privée RSA chargée depuis {PRIVATE_KEY_FILE} ")
+    return private_key
+def load_rsa_public_key(public_key_file):
     # Charger la clé publique
     with open(public_key_file, "rb") as f:
         public_key = serialization.load_pem_public_key(
             f.read(),
             backend=default_backend()
         )
-    print(f"Clés RSA chargées depuis {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
-    return private_key, public_key
+    print(f"Clés publique RSA chargée depuis {PUBLIC_KEY_FILE}")
+    return public_key
 
 def encrypt_file_rsa(input_file, output_file, public_key):
     # Générer une clé symétrique AES
@@ -148,7 +151,8 @@ def main():
     # Générer les clés RSA, si besoin
     if os.path.exists(PRIVATE_KEY_FILE) and os.path.exists(PUBLIC_KEY_FILE):
         #charger les clés RSA
-        private_key, public_key = load_rsa_keys(PRIVATE_KEY_FILE,PUBLIC_KEY_FILE)
+        public_key = load_rsa_public_key(PUBLIC_KEY_FILE)
+        private_key = load_rsa_private_key(PRIVATE_KEY_FILE)
     else:
         private_key, public_key = generate_rsa_keys(PRIVATE_KEY_FILE,PUBLIC_KEY_FILE)
     
