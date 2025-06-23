@@ -48,12 +48,21 @@ Ce programme démontre les principes de base du chiffrement asymétrique en util
 
 ### Fonctionnalités
 
+#### test_simple()
 - Génération d'une paire de clés RSA (privée et publique).
 - chargement d'une paire de clés RSA (privée et publique).
 - Chiffrement d'un fichier en utilisant une clé publique RSA et une clé symétrique AES.
 - Déchiffrement d'un fichier chiffré en utilisant une clé privée RSA et une clé symétrique AES.
 - Signature d'un fichier en utilisant une clé privée RSA.
 - Vérification de la signature d'un fichier en utilisant une clé publique RSA.
+
+#### test_alice_bob()
+- Génération d'une paire de clés RSA (privée et publique). pour alice et bob
+- chargement d'une paire de clés RSA (privée et publique). pour alice et bob
+- Chiffrement d'un fichier en utilisant la clé publique RSA de bob et une clé symétrique AES.
+- Déchiffrement d'un fichier chiffré en utilisant la clé privée RSA de bob et une clé symétrique AES.
+- Signature d'un fichier en utilisant la clé privée RSA de Alice.
+- Vérification de la signature d'un fichier en utilisant la clé publique RSA d'alice.
 
 ### Utilisation
 
