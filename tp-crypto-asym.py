@@ -7,12 +7,12 @@ import os
 
 # Constantes
 FILE_NAME = "input.txt"
-ENCRYPTED_FILE_NAME = "encrypted.bin"
-DECRYPTED_FILE_NAME = "decrypted.txt"
-SIGNED_FILE_NAME = "signed.bin"
-SIGNATURE_FILE_NAME = "signature.bin"
-PRIVATE_KEY_FILE = "private_key.pem"
-PUBLIC_KEY_FILE = "public_key.pem"
+ENCRYPTED_FILE_NAME = "work/encrypted.bin"
+DECRYPTED_FILE_NAME = "work/decrypted.txt"
+SIGNED_FILE_NAME = "work/signed.bin"
+SIGNATURE_FILE_NAME = "work/signature.bin"
+PRIVATE_KEY_FILE = "work/private_key.pem"
+PUBLIC_KEY_FILE = "work/public_key.pem"
 KEY_SIZE = 2048  # Taille de la clé RSA
 SYMMETRIC_KEY_SIZE = 32  # Taille de la clé symétrique AES-256
 

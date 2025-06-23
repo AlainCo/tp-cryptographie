@@ -1,9 +1,2 @@
-encrypted.bin
-private_key.pem
-public_key.pem
-encrypted.bin
-signature.bin
-encrypted.bin
-decrypted.txt
 work/
 .venv/
