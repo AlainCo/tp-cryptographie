@@ -201,10 +201,20 @@ def test_alice_bob():
     encrypt_file_rsa(FILE_NAME, ENCRYPTED_FILE_NAME, bob_public_key)
     print(f"Fichier {FILE_NAME} chiffré en {ENCRYPTED_FILE_NAME}")
     
+    sign_file(DECRYPTED_FILE_NAME, SIGNATURE_FILE_NAME, alice_private_key)
+    print(f"Fichier {DECRYPTED_FILE_NAME} signé et signature sauvegardée dans {SIGNATURE_FILE_NAME}")
+    
     # je suis bob
     # Déchiffrer le fichier avec la clé privée RSA de BOB et la clé symétrique AES chiffére dans le fichier
     decrypt_file_rsa(ENCRYPTED_FILE_NAME, DECRYPTED_FILE_NAME, bob_private_key)
     print(f"Fichier {ENCRYPTED_FILE_NAME} déchiffré en {DECRYPTED_FILE_NAME}")
+    
+     # Vérifier la signature avec la clé publique RSA
+    is_valid = verify_signature(DECRYPTED_FILE_NAME, SIGNATURE_FILE_NAME, alice_public_key)
+    if is_valid:
+        print("La signature est valide.")
+    else:
+        print("La signature est invalide.")
 
 if __name__ == "__main__":
     try:
