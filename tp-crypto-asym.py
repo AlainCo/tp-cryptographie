@@ -209,7 +209,7 @@ def test_alice_bob():
     decrypt_file_rsa(ENCRYPTED_FILE_NAME, DECRYPTED_FILE_NAME, bob_private_key)
     print(f"Fichier {ENCRYPTED_FILE_NAME} déchiffré en {DECRYPTED_FILE_NAME}")
     
-     # Vérifier la signature avec la clé publique RSA
+    # Vérifier la signature avec la clé publique RSA
     is_valid = verify_signature(DECRYPTED_FILE_NAME, SIGNATURE_FILE_NAME, alice_public_key)
     if is_valid:
         print("La signature est valide.")
