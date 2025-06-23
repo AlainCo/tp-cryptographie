@@ -5,3 +5,5 @@ encrypted.bin
 signature.bin
 encrypted.bin
 decrypted.txt
+work/
+.venv/
