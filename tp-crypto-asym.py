@@ -16,20 +16,20 @@ PUBLIC_KEY_FILE = "public_key.pem"
 KEY_SIZE = 2048  # Taille de la clé RSA
 SYMMETRIC_KEY_SIZE = 32  # Taille de la clé symétrique AES-256
 
-def generate_rsa_keys():
+def generate_rsa_keys(private_key_file,public_key_file):
     private_key = rsa.generate_private_key(
         public_exponent=65537,
         key_size=KEY_SIZE,
         backend=default_backend()
     )
     public_key = private_key.public_key()
-    with open(PRIVATE_KEY_FILE, "wb") as f:
+    with open(private_key_file, "wb") as f:
         f.write(private_key.private_bytes(
             encoding=serialization.Encoding.PEM,
             format=serialization.PrivateFormat.TraditionalOpenSSL,
             encryption_algorithm=serialization.NoEncryption()
         ))
-    with open(PUBLIC_KEY_FILE, "wb") as f:
+    with open(public_key_file, "wb") as f:
         f.write(public_key.public_bytes(
             encoding=serialization.Encoding.PEM,
             format=serialization.PublicFormat.SubjectPublicKeyInfo
@@ -150,7 +150,7 @@ def main():
         private_key, public_key = load_rsa_keys()
         print(f"Clés RSA chargées depuis {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
     else:
-        private_key, public_key = generate_rsa_keys()
+        private_key, public_key = generate_rsa_keys(PRIVATE_KEY_FILE,PUBLIC_KEY_FILE)
         print(f"Clés RSA générées et sauvegardées dans {PRIVATE_KEY_FILE} et {PUBLIC_KEY_FILE}")
     
     
